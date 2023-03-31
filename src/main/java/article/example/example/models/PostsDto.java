@@ -19,8 +19,17 @@ public class PostsDto {
 
     private String status;
 
-    public PostsDto() {
+    public PostsDto(@NotBlank(message = "required") @Size(min = 20, message = "minimal 20 karakter") String title,
+            @NotBlank(message = "required") @Size(min = 200, message = "minimal 200 karakter") String content,
+            @NotBlank(message = "required") @Size(min = 3, message = "minimal 3 karakter") String category,
+            String status) {
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.status = status;
+    }
 
+    public PostsDto() {
     }
 
     public String getTitle() {
